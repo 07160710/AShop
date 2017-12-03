@@ -1,0 +1,74 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <style type="text/css">
+     body, html,#mymap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+    </style>
+    <script type='text/javascript' src='http://api.map.baidu.com/api?v=1.3'></script>
+    <title>手机商城</title>
+    <link rel="stylesheet" href="/PhoneShop/public/static/JQM/jquery.mobile-1.4.5.min.css" >
+    <link href="/PhoneShop/public/static/JQM/css/bootstrap.css" rel="stylesheet">
+    <link href="/PhoneShop/public/static/JQM/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <!--<span class="sr-only">Toggle navigation</span>-->
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">联系我们</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../index/index.html" data-ajax="false">主页</a></li>
+              <li><a href="../aboutus/aboutus.html">关于我们</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div id="mymap"></div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 Company, Inc.</p>
+      </footer>
+    </div>
+    <script type="text/javascript">
+  // 百度地图API功能
+  var map = new BMap.Map("mymap");   // 创建Map实例
+  var point = new BMap.Point(113.445163, 23.191620);  //创建坐标点 (113.445163, 23.191620);
+    map.centerAndZoom(point,15) // 初始化地图,设置中心点坐标和地图级别 centerAndZoom
+  map.addControl(new BMap.MapTypeControl());    //添加地图类型控件BMap.MapTypeControl
+  map.setCurrentCity("广州");    // 设置地图显示的城市 此项是必须设置的setCurrentCity
+  map.enableScrollWheelZoom(true);    //开启鼠标滚轮缩放enableScrollWheelZoom
+
+  var top_left_control = new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT});
+  map.addControl(top_left_control);// 左上角，添加比例尺 BMap.ScaleControl
+  
+  var top_left_navigation = new BMap.NavigationControl();
+  map.addControl(top_left_navigation);//左上角，添加默认缩放平移控件BMap.NavigationControl
+    
+  var marker = new BMap.Marker(point);  // 创建标注
+  map.addOverlay(marker);// 将标注添加到地图中addOverlay
+  var opts = {
+         width:200,// 信息窗口宽度
+         height:100,// 信息窗口高度
+         title:" 广州市白云区"// 信息窗口标题
+  }
+  var infoWindow = new BMap.InfoWindow("地址：广州市机电科技公司<br/>联系方式：6666666<br/>qq:1597643", opts);  // 创建信息窗口对象BMap.InfoWindow 
+  marker.addEventListener("click", function(){          
+    map.openInfoWindow(infoWindow,point);  //开启信息窗口openInfoWindow
+  });
+  
+</script>
+    <script src="/PhoneShop/public/static/JQM/js/jquery-3.2.1.min.js"></script>
+    <script src="/PhoneShop/public/static/JQM/js/bootstrap.min.js"></script>
+  </body>
+</html>

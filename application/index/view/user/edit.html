@@ -1,0 +1,72 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>手机商城</title>
+    <link rel="stylesheet" href="/PhoneShop/public/static/JQM/jquery.mobile-1.4.5.min.css" >
+    <link href="/PhoneShop/public/static/JQM/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/PhoneShop/public/static/JQM/css/button.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <!--<span class="sr-only">Toggle navigation</span>-->
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">手机商店</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="../index/index.html" data-ajax="false">主页</a></li>
+              <li><a href="#">关于我们</a></li>
+              <li><a href="#">联系我们</a></li>
+              <li><a href="#">忘记密码</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+      <div class="container">
+      <form class="form-signin" method="post" action="edituser" data-ajax="false">
+        <h2 class="form-signin-heading">修改个人信息</h2>
+        <div>
+        <label for="username" class="sr-only"> 用户名 </label>
+        <input type="text" id="username" name="username" class="form-control" placeholder="{$edituser.user_name}" required autofocus disabled="disabled">
+        </div><br/>
+        <div>
+        <label for="truename" class="sr-only"> 用户姓名 </label>
+        <input type="text" id="truename" name="truename" class="form-control" placeholder="{$edituser.user_truename}" required autofocus>
+        </div><br/>
+        <div>
+        <label class="sr-only"> 性别:&nbsp;&nbsp; </label>
+        <label for="male" class="sr-only">男</label>
+        <input type="radio" name="gender" id="male" value="男" {if condition="$edituser.user_sex=='男'"}checked="checked"{/if}>男&nbsp;&nbsp;&nbsp;
+        <label for="female" class="sr-only">女</label>
+        <input type="radio" name="gender" id="female" value="女" {if condition="$edituser.user_sex=='女'"}checked="checked"{/if}>女
+        </div><br/>
+        <label for="email" class="sr-only"> 电子邮箱 </label>
+        <input type="email" id="email" name="email" class="form-control" placeholder="{$edituser.user_email}" required autofocus>
+        <br/>
+        <label for="phone" class="sr-only"> 手机号码 </label>
+        <input type="text" id="phone" name="phone" class="form-control" placeholder="{$edituser.user_tel}" required autofocus>
+        &nbsp;
+        <label for="address" class="sr-only"> 地址 </label>
+        <input type="text" id="address" name="address" class="form-control" placeholder="{$edituser.user_address}" required autofocus>
+        &nbsp;
+        <div align="center">
+        <button class="button button-3d button-primary button-rounded" type="submit" >修改个人信息</button>
+      </div>
+      </form>
+    </div>
+    <!-- <script src="/PhoneShop/public/static/JQM/jquery.mobile-1.4.5.min.js"></script> -->
+    <script src="/PhoneShop/public/static/JQM/js/jquery-3.2.1.min.js"></script>
+    <script src="/PhoneShop/public/static/JQM/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>手机商城</title>
+    <link rel="stylesheet" href="/PhoneShop/public/static/JQM/jquery.mobile-1.4.5.min.css" >
+    <link href="/PhoneShop/public/static/JQM/css/button.css" rel="stylesheet">
+    <link href="/PhoneShop/public/static/JQM/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <!--<span class="sr-only">Toggle navigation</span>-->
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">手机商店</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="../index/index.html" data-ajax="false">主页</a></li>
+              <li><a href="#">关于我们</a></li>
+              <li><a href="#">联系我们</a></li>
+              <li><a href="#">忘记密码</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+      
+      <div class="container">
+        <h2 class="form-signin-heading">个人信息</h2>
+        <hr border="0"/>
+        <label> 用户名 </label> ：<label>{$onlyuser.user_name}</label><br/>
+        <label> 用户姓名 </label> ：<label>{$onlyuser.user_truename}</label><br/>
+        <label> 性别 </label> ：<label>{$onlyuser.user_sex}</label><br/>
+        <label> 邮箱 </label> ：<label>{$onlyuser.user_email}</label><br/>
+        <label> 手机号码 </label> ：<label>{$onlyuser.user_tel}</label><br/> 
+        <label> 地址 </label> ：<label>{$onlyuser.user_address}</label><br/>
+        <hr border="0"/>   
+        <div align="center"> 
+        <a href="../user/edit.html" class="button button-3d button-primary button-rounded">修改个人信息</a>
+        </div>
+    </div>
+    <!-- <script src="/PhoneShop/public/static/JQM/jquery.mobile-1.4.5.min.js"></script> -->
+    <script src="/PhoneShop/public/static/JQM/js/jquery-3.2.1.min.js"></script>
+    <script src="/PhoneShop/public/static/JQM/js/bootstrap.min.js"></script>
+  </body>
+</html>

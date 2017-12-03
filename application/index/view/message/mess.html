@@ -1,0 +1,72 @@
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>手机商城</title>
+    <link rel="stylesheet" href="/PhoneShop/public/static/JQM/jquery.mobile-1.4.5.min.css" >
+    <link href="/PhoneShop/public/static/JQM/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <!--<span class="sr-only">Toggle navigation</span>-->
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">手机商店</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="../index/index.html" data-ajax="false">主页</a></li>
+              <li><a href="../aboutus/aboutus.html">关于我们</a></li>
+              <li><a href="../aboutus/contactus.html">联系我们</a></li>
+              <li><a href="#">忘记密码</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+      <div class="container">
+      <form class="form-signin" method="post" action="messdo" data-ajax="false">
+        <h2 class="form-signin-heading">请在下方填写留言</h2>
+        <label for="messname" class="sr-only"> 留言名称 </label>
+        <input type="text" id="messname" name="messname" class="form-control" placeholder="留下你的大名" required autofocus>
+        &nbsp;
+        <label for="content" class="sr-only"> 留言内容 </label>
+        <textarea id="content" name="content" class="form-control" placeholder="填写留言"></textarea>
+        &nbsp;
+        <button class="btn btn-lg btn-primary btn-block" type="submit">发布留言</button>
+      </form>
+      <hr border="5" />
+      <h2>留言列表</h2>  
+     {volist name='message' id='infor'}  
+       <table>  
+        <tbody><tr>  
+            <td>留言者:</td>  
+            <td>  
+                {$infor.name}
+            </td>  
+        </tr>  
+        <tr>  
+            <td>留言内容:</td>  
+            <td>{$infor.content}</td>  
+        </tr>  
+        <tr>  
+            <td>留言时间:</td>  
+            <td>{$infor.createAt|date='Y-m-d H:i:s',###}</td>  
+        </tr>  
+    </tbody></table><hr border="1" />  
+    {/volist}
+    {$message->render()}  
+    </div>
+    <!-- <script src="/PhoneShop/public/static/JQM/jquery.mobile-1.4.5.min.js"></script> -->
+    <script src="/PhoneShop/public/static/JQM/js/jquery-3.2.1.min.js"></script>
+    <script src="/PhoneShop/public/static/JQM/js/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图书分类</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/PhoneShop/public/static/JQM/jquery.mobile-1.4.5.min.css" > 
+<script src="/PhoneShop/public/static/JQM/jquery-1.11.1.min.js"></script>
+<script src="/PhoneShop/public/static/JQM/jquery.mobile-1.4.5.min.js"></script> 
+</head>
+
+<body>
+<div data-role="page">
+  <div data-role="header" >
+    <a data-ajax="false" href="../index/index" data-role="button" data-icon="home">首页</a>
+    <h1>图书列表</h1>
+  </div>
+  <div data-role="content">
+     <ul data-role="listview"  data-inset="true" >
+        {volist name='blist' id='bdata'}
+             <li>
+                <a data-ajax="false" href="phone?phone_id={$bdata.phone_id}">
+                    <img src="/PhoneShop/public/static/images/{$bdata.phone_img}"  />
+                    <span>{$bdata.phone_name}</span><br/>
+                    <span>原价：￥{$bdata.phone_oldprice|round=2}</span><br/>
+                    <span  style="color:#F09">折后价：￥{$bdata.phone_newprice|round=2}</span>
+                </a>
+             </li>
+        {/volist}
+        
+     </ul> 
+  </div>
+  
+  <div data-role="footer" data-theme="b">
+    <h1>机电书店</h1>
+  </div>
+</div>
+</body>
+</html>

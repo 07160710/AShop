@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>手机商店</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>手机商城</title>
+<link rel="stylesheet" href="/PhoneShop/public/static/JQM/jquery.mobile-1.4.5.min.css" >
+<!-- <link href="/PhoneShop/public/static/JQM/css/bootstrap-theme.min.css" rel="stylesheet"> -->
+<link href="/PhoneShop/public/static/JQM/css/bootstrap.css" rel="stylesheet">
+<link href="/PhoneShop/public/static/JQM/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+body {
+  margin: 0 auto;
+  text-align:center;
+  padding:0;
+}
+div, ul, li, dl, dt, dd, h1, h2, h3, h4, p {
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+a {
+  text-decoration:none;
+}
+
+.ui-bar-f
+{
+background-color:#cccc33;
+border:#FF0 1px solid;
+}
+.ui-bar-f .ui-btn
+{
+background-color:#669933;
+}
+.ui-bar-f .ui-btn:hover
+{
+background-color:#FC9;
+}
+.ui-body-f
+{
+background-color:#CCCCCC;
+}
+.ui-body-f .ui-btn
+{
+  background-color:#cccc00;
+}
+.ui-body-f .ui-btn:hover
+{
+  background-color:#999900;
+}
+
+</style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <!--<span class="sr-only">Toggle navigation</span>-->
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">手机商店</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="../aboutus/aboutus" data-ajax="false">关于我们</a></li>
+              <li><a href="../aboutus/contactus" data-ajax="false">联系我们</a></li>
+              {if condition="$user!=null"}
+              <li><a href="../user/modifypassword" data-ajax="false">修改密码</a>
+              <li><a href="../user/loginout" data-ajax="false">退出登录</a></li>
+              {elseif condition="$user==null"}
+              <li><a href="../user/login" data-ajax="false">登录</a></li>
+              <li><a href="../user/reg" data-ajax="false">注册</a></li>
+              {/if}
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </nav>
+ <!-- <div data-role="page">
+  <div data-role="header" data-theme="f">
+    <h1>手机店</h1>
+    {if condition="$user!=null"}
+    <a href="#" data-role="button">欢迎您，{$user}</a>
+    <a href="../user/loginout" data-role="button" data-ajax="false">退出登录</a>
+    {elseif condition="$user==null"}
+    <a href="../user/login" data-role="button" data-icon="info" data-ajax="false"> 欢迎登录 </a>
+    <a href="../user/login" data-role="button" data-icon="info" data-ajax="false">登陆</a>
+    {/if}
+    </div>-->
+  <div class="container">
+    
+    <!--图片轮播图 -->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img src="/PhoneShop/public/static/images/first.jpg" alt="First slide">
+          </div>
+          <div class="item">
+            <img src="/PhoneShop/public/static/images/second.jpg" alt="Second slide">
+          </div>
+          <div class="item">
+            <img src="/PhoneShop/public/static/images/third.jpg" alt="Third slide">
+          </div>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <hr border="0"/>
+      <!-- 是否登录 -->
+      {if condition="$user!=null"}
+      <div class="jumbotron">
+        <h1>欢迎你，我的{$user}</h1>
+        <p class="lead">你可以参观并可购买我们的手机产品</p>
+        <p><a class="btn btn-lg btn-success" href="../user/people" role="button" data-ajax="false">个人中心</a></p>
+       </div>
+      {elseif condition="$user==null"}
+        <h1>欢迎光临</h1>
+        <p class="lead">在这里，你会看到各式各样的手机款式，在这里有无穷无尽的手机等着你来购买</p>
+        <p><a class="btn btn-lg btn-success" href="../user/login" role="button" data-ajax="false">登录</a></p>
+      </div>
+      {/if}
+      <hr border="0"/>
+
+     <div data-role="collapsible" data-collapsed="false">
+      <h3>今日特价</h3>
+      <div>
+         <a href='#' data-ajax="false"> <img src="/PhoneShop/public/static/images/{$phoneprice.phone_img}" width="180" height="200" /> <br/>
+        {$phoneprice.phone_name}<br/>
+        <span>￥{$phoneprice.phone_newprice}</span> </a>
+      </div>
+    </div>
+
+    <hr border="0"/>
+
+    <div data-role="collapsible" data-collapsed="false">
+      <h3>快捷工具</h3>
+      <hr border="0"/>
+      <div class="ui-grid-b">
+        <div class="ui-block-a"> <a href="../phone/phonetype"  data-ajax="false"> <img src="/PhoneShop/public/static/images/neTool01.jpg" /><br/>
+          <span>手机分类</span><br/>
+          <br/>
+          </a> </div>
+          <div class="ui-block-b"> <a href="#"> <img src="/PhoneShop/public/static/images/neTool02.jpg"  /><br/>
+          <span>联系我们</span><br/>
+          <br/>
+          </a> </div>
+        <div class="ui-block-c"> <a href="../user/reg" data-ajax="false"> <img  src="/PhoneShop/public/static/images/neTool03.jpg" alt="yhzc" /><br/>
+          <span>用户注册</span><br/>
+          <br/>
+          </a> </div>
+        <div class="ui-block-a"> <a href="#"> <img src="/PhoneShop/public/static/images/neTool04.jpg" alt="sdgg" /><br/>
+          <span>科技公告</span><br/>
+          <br/>
+          </a> </div>
+        <div class="ui-block-b"> <a href="../message/mess"> <img src="/PhoneShop/public/static/images/neTool05.jpg" alt="bzzx" /><br/>
+          <span>留言板</span><br/>
+          <br/>
+          </a> </div>
+        <div class="ui-block-c"> <a href="../feedback/feedback" data-ajax="false"> <img src="/PhoneShop/public/static/images/neTool06.jpg" alt="yjfk" /><br/>
+          <span>意见反馈</span><br/>
+          <br/>
+          </a> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+      <div class="container">
+      <p class="text-muted">机电科技</p>
+      </div>
+</footer>
+<script src="/PhoneShop/public/static/JQM/js/jquery-3.2.1.min.js"></script>
+<script src="/PhoneShop/public/static/JQM/js/bootstrap.min.js"></script>
+</body>
+</html>
